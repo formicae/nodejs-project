@@ -1,0 +1,14 @@
+Html
+    head
+        title Pug example page
+        body
+            style.
+            h1 #{table_name}
+            h2 #{number}
+            a(href = 'https://github.com/pugjs/pug', data-set='multipleAttribute') Github for pug
+            hr
+            - for(let i=0;i<10;i++){
+                p
+                #multiple
+                    #{number} X #{i} = #{number * i}
+            - }

@@ -2,35 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login page</title>
+    <title>Log in page !!</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <hr/>
-    <form method="post">
-        <table>
-            <tr>
-                <td><label>User Name</label></td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr>
-                <td><label>UserId</label></td>
-                <td><input type="text" name="userid"></td>
-            </tr>
-            <tr>
-                <td><label>Password</label></td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td><label>Question for your password hint</label></td>
-                <td><input type="text" name="pwhintquestion" maxlength="100"></td>
-            </tr>
-            <tr>
-                <td><label>Answer for your password hint</label></td>
-                <td><input type="text" name="pwhintanswer" maxlength="50"></td>
-            </tr>
-        </table>
-        <input type="submit" value="confirm" name="button">
-    </form>
+<h1> Please enter your id & password</h1>
+<form action="/" method="post">
+    <table>
+        <tr>
+            <td><label>ID</label></td>
+            <td><input type="text" name="userid"/> </td>
+        </tr>
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="password" name="password"/> </td>
+        </tr>
+    </table>
+    <input type="submit" value = "OK" name="confirm">
+</form>
+<form action="/signup" method="get">
+    <button type="submit">Sign up here!</button>
+</form>
+<script>
+</script>
 </body>
 </html>

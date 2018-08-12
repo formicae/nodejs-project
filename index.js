@@ -35,18 +35,20 @@ app.use('/', signupRouter);
 app.use('/', userpageRouter);
 let visited = 0;
 
+const renderPage = (req, res, headtext) => {
+    req.session.prevurl = '/';
+    res.render('loginResource/login.html',{text:headtext});
+};
+
 app.get('/', (req, res, next) => {
     console.log('main session : ', req.session.prevurl);
     if ((visited > 0 && !req.session.prevurl) || req.session.prevurl === '/loggout') {
-        req.session.prevurl = '/';
-        res.render('loginResource/login.html', {text:'Log out !!'});
+        renderPage(req, res, 'Log out !!');
     } else if (req.session.prevurl === '/signup') {
-        req.session.prevurl = '/';
-        res.render('loginResource/login.html', {text:'Sign up finished! Please log in'});
+        renderPage(req, res, 'Sign up finished! Please log in');
     } else {
-        req.session.prevurl = '/';
         visited += 1;
-        res.render('loginResource/login.html',{text:`welcome! you visited here ${visited} times!`})
+        renderPage(req, res, `welcome! you visited here ${visited} times!`);
     }
 });
 

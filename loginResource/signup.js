@@ -4,10 +4,17 @@ const mysql = require('mysql');
 const app = express();
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const cookiePaser = require('cookie-parser');
 const SECRET_KEY = 'secret';
 app.use(bodyParser.urlencoded({ extended: false, }));
 app.use(cookiePaser());
+app.use(session({
+    key:'youngmo',
+    secret:'mo',
+    resave:true,
+    saveUninitialized:true,
+}));
 const connection = mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -17,6 +24,7 @@ const connection = mysql.createConnection({
 });
 
 router.get('/signup', (req, res, next) => {
+    req.session.prevurl = '/signup';
     res.render('loginResource/signup.html', {title:"Index file haha @"});
 });
 
@@ -26,7 +34,7 @@ router.post('/signup', (req, res, next) => {
     connection.query("INSERT INTO info(username, userid, password, token) VALUES ('"+req.body.username+"','"+req.body.userid+"','"+req.body.password+"','"+token+"')", (err, results, fields) => {
         if (err) throw err;
         console.log('data add to MySQL done!');
-        res.cookie(req.body.userid,token);
+        res.cookie(req.body.userid,'initial-cookie');
         res.redirect('/');
     });
 });

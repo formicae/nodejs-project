@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome <%= userid %> !</h1>
+<h3>Successfully logged in</h3>
+<h5>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. For more information on using Node.js, see the Node.js Website.
+    The Node.js project is supported by the Node.js Foundation. Contributions, policies, and releases are managed under an open governance model.
+</h5>
+<!--<form action="/user/:userid" method="post">-->
+<!--<form id="actionid" onsubmit="concateurl(userid)">-->
+<form action="/loggout" method="get">
+    <button type="submit">Log out</button>
+</form>
+<!--<script>-->
+    <!--function concateurl(){-->
+        <!--var src = "/user/" + userid;-->
+        <!--console.log(scr);-->
+        <!--actionid.action = src;-->
+    <!--}-->
+<!--</script>-->
+</body>
+</html>
